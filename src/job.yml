@@ -1,15 +1,21 @@
+# Tells Azure ML what kind of YAML this is.
+#  Docs: https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-job-command
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-code: model
+
+# What code to make available
+code: ./model
+
+# What to run
 command: >-
-  python 
-  --
-  --
+  python train.py --training_data ${{inputs.training_data }} --reg_rate ${{inputs.reg_rate }}
+
 inputs:
-  training_data: 
-    type: uri_folder 
-    path: 
-  reg_rate: 0.01
+  training_data: azureml:diabetes-dataset:1
+  reg_rate: 0.1
+
+# Where to run it
 environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
-compute: 
-experiment_name: 
-description: 
+compute: azureml:saschacmlopscopmute
+
+
+# az ml job create --file job.yml --web --resource-group saschac-mlops-learn --workspace-name saschac-mlops-aml

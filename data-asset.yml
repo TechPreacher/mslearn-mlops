@@ -1,0 +1,7 @@
+$schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
+name: diabetes-dataset
+description: Diabetes dataset created from local folder.
+type: uri_folder
+path: experimentation/data/
+
+# az ml data create --file data-asset.yml --resource-group saschac-mlops-learn --workspace-name saschac-mlops-aml
