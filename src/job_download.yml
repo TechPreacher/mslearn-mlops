@@ -7,14 +7,7 @@ code: ./model
 
 # What to run
 command: >-
-  python train.py --training_data ${{inputs.training_data}} --reg_rate ${{inputs.reg_rate}}
-
-# What to pass to python as args
-inputs:
-  training_data:
-    type: uri_folder
-    path: azureml:diabetes-dataset:1
-  reg_rate: 0.1
+  python train_download.py
 
 # Where to run it
 environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
