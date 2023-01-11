@@ -4,13 +4,13 @@ from azure.ai.ml import MLClient
 from azure.identity import DefaultAzureCredential
 import azure.ai.ml._artifacts._artifact_utilities as artifact_utils
 
-subscription_id = "0b439d3d-c7ae-4a59-8b19-87226095eba0"
-resource_group = "rg-mikou-dev"
-workspace = "aml-mikou-dev"
+subscription_id = "0b962213-fc84-4c8d-bc1a-2dce59741c5a"
+resource_group = "saschac-mlops-learn"
+workspace = "saschac-mlops-aml"
 
-dataset_name = "diabetes-dev-data"
-dataset_version = "2"
-downloaded_data_folder = "./data/"+dataset_name+"/"+dataset_version
+dataset_name = "diabetes-dataset"
+dataset_version = "1"
+downloaded_data_folder = "/mldata/"+dataset_name+"/"+dataset_version
 
 # Get the client
 ml_client = MLClient(
